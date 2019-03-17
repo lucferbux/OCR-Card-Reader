@@ -1,0 +1,35 @@
+.grid-container {
+    margin: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card {
+  margin-top: 20px;
+}
+
+
+.button-form {
+    width: 150px;
+    margin: 10px;
+}
+
+.spinner-form {
+  margin-right: 30px
+}
+
+.create-div{
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+}
+
+
+.show-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

@@ -1,0 +1,56 @@
+@import '~@angular/material/theming';
+
+
+.dropzone { 
+
+    &.hovering {
+        background-color: #29A5E9 !important;
+        color: #ffffff;
+    }
+
+}
+
+progress::-webkit-progress-value {
+    transition: width 0.1s ease;
+}
+
+
+// .header-image {
+//     height: 100px;
+//     width: 100px
+//  }
+
+ .sheet-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+@media all and (max-width: 600px) {
+    .result_info {
+      /* When on medium sized screens, we center it by evenly distributing empty space around items */
+      flex-direction: column;
+    }
+  }
+
+.image-cropper{
+    //width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button-sheet {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.intro-image {
+    object-fit: contain;
+    height: 280px; 
+}

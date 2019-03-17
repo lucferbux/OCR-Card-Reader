@@ -1,0 +1,23 @@
+<div class="sheet-list">
+        <image-cropper
+        [imageFileChanged]="image"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="data.width / data.height"
+        [resizeToWidth]="data.width"
+        format="png"
+        (imageCroppedFile)="imageCroppedFile($event)"
+        (imageLoaded)="imageLoaded()"
+        [style.display]="cropperReady ? null : 'none'"
+        ></image-cropper>
+                
+        <button class="button-sheet" color="primary" mat-raised-button (click)="uploadTrimmedImage()">
+                <mat-icon>backup</mat-icon>
+                <span>Upload Image</span>
+        </button>
+        
+        <button class="button-sheet" color="warn" mat-raised-button (click)="bottomSheetRef.dismiss()">
+                <mat-icon>clear</mat-icon>
+                <span>Cancel</span>
+        </button>
+</div>
+

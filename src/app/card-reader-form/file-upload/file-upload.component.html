@@ -1,0 +1,65 @@
+<mat-card appDropZone class="dropzone" (hovered)="toggleHover($event)" (dropped)="fileChangeListener($event)"
+    [class.hovering]="isHovering">
+    <br *ngIf="downloadURL | async as url">
+
+    <img matCardImage *ngIf="downloadURL | async as url" class="intro-image" src={{url}}>
+    <mat-card-content>
+
+        <div *ngIf="!results_filtered; else result_block">
+            <div *ngIf="!downloadURL">
+                <h2 class="mat-h2">{{title}}</h2>
+                <p>{{subtitle}}</p>
+
+                <button mat-raised-button type="button" color="primary" (click)="imageUpload.click()">
+                    <mat-icon>library_add</mat-icon>
+                    <span>Select Image</span>
+                </button>
+
+                <input hidden #imageUpload class="file-input" type="file"
+                    (change)="fileChangeListener($event.target.files)">
+
+
+                <br>
+
+                <div *ngIf="percentage | async as pct">
+                    <mat-progress-bar mode="determinate" [value]="pct">
+                    </mat-progress-bar>
+                </div>
+
+                <br>
+            </div>
+
+            <button *ngIf="(snapshot | async) as snap" (click)="task.cancel()" [disabled]="!isActive(snap)"
+                mat-raised-button color="warn">Cancel</button>
+        </div>
+        <!-- Result formatted with the text parsed -->
+        <ng-template #result_block>
+            <div class="result_info">
+                <div *ngIf="results_filtered.phone" class="phone-result">
+                    <h2 class="mat-h2">Phone</h2>
+                    <button mat-raised-button type="button" color="accent">{{results_filtered.phone}}</button>
+                </div>
+                <br>
+                <div *ngIf="results_filtered.email" class="mail-result">
+                    <h2 class="mat-h2">Email</h2>
+                    <button mat-raised-button type="button" color="accent">{{results_filtered.email}}</button>
+                </div>
+                <br>
+                <div *ngIf="results_filtered.username" class="username-result">
+                    <h2 class="mat-h2">Username</h2>
+                    <button mat-raised-button type="button" color="accent">{{results_filtered.username}}</button>
+                </div>
+                <br>
+                <div *ngIf="results_filtered.possible_name && results_filtered.possible_name.length > 1"
+                    class="names-result">
+                    <h2 class="mat-h2">Name</h2>
+                    <button type="button" *ngFor="let item of results_filtered.possible_name" mat-raised-button
+                        color="primary" cdkDrag>{{item}}</button>
+                </div>
+            </div>
+        </ng-template>
+
+        <mat-spinner *ngIf="downloadURL && !results_filtered" style="margin:0 auto;" mode="indeterminate"></mat-spinner>
+
+    </mat-card-content>
+</mat-card>
