@@ -19,18 +19,13 @@ export class CardReaderFormComponent implements OnInit {
   imageTitleDropdown = "Image processed";
   imageSubtitleDropdown = "Image processed to extract data";
   url: string = "nothing";
-  
+
   searchForm: FormGroup;
   loading = false;
-  editable: Boolean =  true;
+  editable: Boolean = true;
 
-  constructor() { 
-  }
+  constructor() {}
 
-  ngOnInit() {
-    
-  }
-
-
+  ngOnInit() {}
 
 }

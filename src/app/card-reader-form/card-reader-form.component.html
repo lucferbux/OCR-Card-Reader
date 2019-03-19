@@ -3,12 +3,12 @@
         <h1 class="mat-h1">Card Upload</h1>
         <br>
         <app-file-upload contenteditable="true" [folder]="folderName" [filename]="fileName" [title]="titleDropdown"
-        [subtitle]="subtitleDropdown" [widthCrop]=800 [heightCrop]=440 [avatarImage]=false [imageTitle]="imageTitleDropdown" [imageSubtitle]="imageSubtitleDropdown"> </app-file-upload>   
+            [subtitle]="subtitleDropdown" [widthCrop]=800 [heightCrop]=440 [avatarImage]=false
+            [imageTitle]="imageTitleDropdown" [imageSubtitle]="imageSubtitleDropdown"> </app-file-upload>
     </div>
-    
+
     <div class="show-form">
         <button mat-raised-button color="primary" *ngIf="!editable" (click)="changeState()">New search</button>
     </div>
-    
-    
+
 </div>
